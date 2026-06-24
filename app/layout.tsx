@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Geist } from "next/font/google"
 import "./globals.css"
 import Link from "next/link"
+import SignOutButton from "@/components/sign-out-button"
 
 const geist = Geist({ subsets: ["latin"] })
 
@@ -18,9 +19,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={geist.className}>
-        <nav className="border-b px-8 py-4 flex gap-6">
+        <nav className="border-b px-8 py-4 flex gap-6 items-center">
           <Link href="/" className="font-semibold hover:underline">Home</Link>
           <Link href="/dashboard" className="font-semibold hover:underline">Dashboard</Link>
+          <div className="ml-auto">
+            <SignOutButton />
+          </div>
         </nav>
         {children}
       </body>
