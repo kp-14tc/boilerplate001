@@ -1,6 +1,7 @@
 import { supabase } from "@/lib/supabase"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import AddProjectForm from "@/components/add-project-form"
 
 export default async function Dashboard() {
   const { data: projects, error } = await supabase
@@ -14,7 +15,8 @@ export default async function Dashboard() {
         <Badge>Beta</Badge>
       </div>
 
-     
+      <AddProjectForm />
+
       <div className="grid gap-4">
         {projects?.map((project) => (
           <Card key={project.id}>
